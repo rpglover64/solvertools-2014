@@ -1,4 +1,4 @@
-PYTHON=python3.3
+PYTHON=python3.4
 
 all: setup wordlists
 

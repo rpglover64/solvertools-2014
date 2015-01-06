@@ -90,12 +90,13 @@ function remove_spaces(s::String)
 end
 
 # ## Wordlists
-function load_wordframe(filename::String, filepath::String=BASE_PATH, T::Type=Int64)
+function load_wordframe(filename::String, filepath::String=BASE_PATH, T::DataType=Int64)
     path = joinpath(filepath, filename)
     wordframe::DataFrame = readtable(
         path, separator='\t', header=false,
-        nastrings=ASCIIString[], colnames=["word", "freq"],
-        coltypes={UTF8String, T}
+        nastrings=ASCIIString[],
+        names=[:word, :freq],
+        eltypes=[UTF8String, T]
     )
     wordframe
 end
